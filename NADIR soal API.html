@@ -1,0 +1,25 @@
+
+
+<div id="sama">
+
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script type="text/javascript">
+    $(function () {
+        $.get('https://prodev-api.ilcs.co.id/ibis_api_external_dev_v2/index.php/SingleBilling/getSppBDoc', function(obj, status){
+        if(obj.status = 500){
+            var htmlku = '';
+            obj.data.forEach(function (res){
+                htmlku += '<b>'+res.ID_DOKUMEN+'</b>  '
+                htmlku += '<b>'+res.NAMA_DOKUMEN+'</b>  ';
+                htmlku += '<br>';
+            });
+
+            $("#sama").html(htmlku);
+        }
+    });
+    
+    });
+</script>
